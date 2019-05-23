@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="xs:schema">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="xs:element" maxOccurs="unbounded"/>
+      </xs:sequence>
+      <xs:attribute name="elementFormDefault" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="xs:element">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="xs:complexType" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="maxOccurs" type="xs:string"/>
+      <xs:attribute name="name" type="xs:string"/>
+      <xs:attribute name="ref" type="xs:string"/>
+      <xs:attribute name="type" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="xs:complexType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="xs:sequence"/>
+        <xs:element ref="xs:attribute"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="xs:sequence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="xs:element" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="xs:attribute">
+    <xs:complexType>
+      <xs:attribute name="name" type="xs:string" use="required"/>
+      <xs:attribute name="type" type="xs:string" use="required"/>
+      <xs:attribute name="use" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
